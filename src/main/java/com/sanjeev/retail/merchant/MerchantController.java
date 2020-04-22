@@ -5,6 +5,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -14,7 +15,7 @@ public class MerchantController {
     private final MerchantService merchantService;
 
     @PostMapping(path = "/merchants",consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Merchant> createMerchant(@RequestBody Merchant merchant) {
+    public ResponseEntity<Merchant> createMerchant(@Valid @RequestBody Merchant merchant) {
         return ResponseEntity.ok(merchantService.create(merchant));
     }
 
@@ -30,7 +31,7 @@ public class MerchantController {
     }
 
     @PutMapping(path = "/merchants/{merchantId}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Merchant> updateMerchant(@RequestBody Merchant merchant, @PathVariable String merchantId) {
+    public ResponseEntity<Merchant> updateMerchant(@Valid @RequestBody Merchant merchant, @PathVariable String merchantId) {
         merchant.setId(merchantId);
         Merchant updatedMerchant = merchantService.updateMerchant(merchant);
         return ResponseEntity.ok(updatedMerchant);
