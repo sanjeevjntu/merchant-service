@@ -1,9 +1,10 @@
-package com.sanjeev.retail.merchant;
+package com.sanjeev.retail.merchant.domain;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import javax.validation.constraints.Email;
@@ -21,6 +22,7 @@ public class Merchant {
 
     @Schema(description = "Name of the Merchant.", example = "Sanjeev", required = true)
     @NotBlank
+    @Indexed(unique = true, useGeneratedName = true)
     private String name;
 
     @Schema(description = "Phone number of the Merchant.", example = "123-2345-456", required = true)

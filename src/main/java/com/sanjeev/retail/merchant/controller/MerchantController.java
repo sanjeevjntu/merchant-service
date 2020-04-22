@@ -1,5 +1,7 @@
-package com.sanjeev.retail.merchant;
+package com.sanjeev.retail.merchant.controller;
 
+import com.sanjeev.retail.merchant.domain.Merchant;
+import com.sanjeev.retail.merchant.service.MerchantService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;

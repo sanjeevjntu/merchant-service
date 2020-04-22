@@ -1,5 +1,7 @@
-package com.sanjeev.retail.merchant;
+package com.sanjeev.retail.merchant.service;
 
+import com.sanjeev.retail.merchant.domain.Merchant;
+import com.sanjeev.retail.merchant.repository.MerchantRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

@@ -1,5 +1,6 @@
-package com.sanjeev.retail.merchant;
+package com.sanjeev.retail.merchant.exception;
 
+import org.springframework.dao.DuplicateKeyException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
@@ -28,9 +29,19 @@ public class CustomerServiceGlobalExceptionHandler {
         return new ResponseEntity<>(new ArrayList<>(errors), HttpStatus.BAD_REQUEST);
     }
 
+    @ExceptionHandler(value = {DuplicateKeyException.class})
+    public ResponseEntity<ApiErrorResponse> handleDuplicateKeyException(DuplicateKeyException ex) {
+        ApiErrorResponse apiErrorResponse = ApiErrorResponse.builder()
+                .errorMessage(ex.getMessage())
+                .context(ex.getMessage())
+                .timestamp(OffsetDateTime.now(ZoneOffset.UTC))
+                .build();
+        return new ResponseEntity<>(apiErrorResponse, HttpStatus.CONFLICT);
+    }
+
+
     @ExceptionHandler(value = {RuntimeException.class})
     public ResponseEntity<ApiErrorResponse> handleValidationRuntimeException(RuntimeException ex) {
-
         ApiErrorResponse apiErrorResponse = ApiErrorResponse.builder()
                 .errorMessage(ex.getMessage())
                 .context(ex.getMessage())

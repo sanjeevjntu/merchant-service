@@ -1,4 +1,4 @@
-package com.sanjeev.retail.merchant;
+package com.sanjeev.retail.merchant.exception;
 
 import lombok.Builder;
 import lombok.Data;

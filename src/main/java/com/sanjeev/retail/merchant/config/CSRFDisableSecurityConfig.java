@@ -1,4 +1,4 @@
-package com.sanjeev.retail.merchant;
+package com.sanjeev.retail.merchant.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
