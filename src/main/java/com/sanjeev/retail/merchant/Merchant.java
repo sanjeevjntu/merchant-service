@@ -1,5 +1,6 @@
 package com.sanjeev.retail.merchant;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.data.annotation.Id;
@@ -17,13 +18,21 @@ public class Merchant {
     //@MongoId
     @Id
     private String id;
+
+    @Schema(description = "Name of the Merchant.", example = "Sanjeev", required = true)
     @NotBlank
     private String name;
+
+    @Schema(description = "Phone number of the Merchant.", example = "123-2345-456", required = true)
     @NotBlank
     @Size(min = 10, max = 20)
     private String phone;
+
+    @Schema(description = "Email of the Merchant.", example = "test@test.com", required = true)
     @Email
     private String email;
+
+    @Schema(description = "Address of the Merchant.", example = "3245 XYZ street, XXX dr, MI, USA", required = true)
     @NotBlank
     private String address;
 }
