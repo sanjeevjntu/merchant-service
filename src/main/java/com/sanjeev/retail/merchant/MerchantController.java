@@ -1,4 +1,4 @@
-package com.lowes.retail.marchindization;
+package com.sanjeev.retail.merchant;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;

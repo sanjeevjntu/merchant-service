@@ -1,4 +1,4 @@
-package com.lowes.retail.marchindization;
+package com.sanjeev.retail.merchant;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
 

@@ -1,4 +1,4 @@
-package com.lowes.retail.marchindization;
+package com.sanjeev.retail.merchant;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -7,7 +7,7 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
-public class MerchantServiceImpl implements MerchantService{
+public class MerchantServiceImpl implements MerchantService {
     private final MerchantRepository merchantRepository;
     @Override
     public Merchant create(Merchant merchant) {
