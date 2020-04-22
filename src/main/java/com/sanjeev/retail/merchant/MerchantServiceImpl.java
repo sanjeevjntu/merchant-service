@@ -9,6 +9,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class MerchantServiceImpl implements MerchantService {
     private final MerchantRepository merchantRepository;
+
     @Override
     public Merchant create(Merchant merchant) {
         Merchant merchant1 = merchantRepository.save(merchant);
@@ -18,5 +19,21 @@ public class MerchantServiceImpl implements MerchantService {
     @Override
     public List<Merchant> findAllMerchants() {
         return merchantRepository.findAll();
+    }
+
+    @Override
+    public Merchant getMerchant(String merchantId) {
+        return merchantRepository.findById(merchantId).orElseThrow();
+    }
+
+    @Override
+    public Merchant updateMerchant(Merchant merchant) {
+        Merchant merchantToUpdate = getMerchant(merchant.getId());
+        merchantToUpdate.setName(merchant.getName());
+        merchantToUpdate.setPhone(merchant.getPhone());
+        merchantToUpdate.setEmail(merchant.getEmail());
+        merchantToUpdate.setAddress(merchant.getAddress());
+
+        return merchantRepository.save(merchantToUpdate);
     }
 }
